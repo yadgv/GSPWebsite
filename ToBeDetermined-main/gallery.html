@@ -9,7 +9,7 @@
 <body>
     <header>
         <nav class="navBar">
-            <a href="home.html">Home</a>
+            <a href="home.html"><img src="homePNG.png" alt="Photo" id="pic1"></a>
             <a href="gallery.html" class="active">Gallery</a>
             <a href="aboutus.html">About Us</a>
             <a href="aboutthegame.html">About The Game</a>
@@ -17,11 +17,17 @@
         </nav>
     </header>
 
+    
     <main>
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modalImg">
+        </div>
+
         <div class="container-gallery">
             <div class="gallery-card">   
                 <h2>AJ Manuel</h2>
-                    <img src="https://via.placeholder.com/150" alt="Photo" onclick="myFunction(this)" id="photo1">
+                    <img src="https://via.placeholder.com/150" alt="Photo">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. E
                         tiam nec sem vestibulum, interdum ipsum a, maximus leo. Aenean porttitor venenatis erat ut ultricies.
@@ -83,4 +89,6 @@
         <p>&copy; 2024 Simple Template</p>
     </footer>
 </body>
+
+<script src="java.js"></script>
 </html>
