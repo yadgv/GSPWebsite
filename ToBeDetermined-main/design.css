@@ -10,8 +10,36 @@ body {
   padding: 10px;
 }
 
-#title {
-  margin: auto;
+.navBar {
+    background-color: #274156;
+    overflow: hidden;
+    border-radius: 15%;
+  }
+  
+/* Style the links inside the navigation bar */
+.navBar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.navBar a:hover {
+  background-color: #D0CCD0;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.navBar a.active {
+  background-color: #1C6E8C;
+  color: white;
+}
+
+.title {
+  margin: 20px;
   text-align: center;
 }
 
