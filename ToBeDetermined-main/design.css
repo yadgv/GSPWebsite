@@ -4,10 +4,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
+body, html {
   font-family: Arial, sans-serif;
   background-color: black;
   padding: 10px;
+  /* overflow: hidden; */
 }
 
 #title {
@@ -53,6 +54,7 @@ footer {
 }
 
 .navBar {
+  z-index: 9999;
   position: fixed;
   left: 1%;
   top: 45%;
@@ -71,7 +73,7 @@ footer {
 .navBar a{
   display: fixed;
   left: 1%;
-  background-color: gray;
+  /* background-color: black; */
   border-radius: 10vw;
   margin-top: 20px;
   color: #f2f2f2;
@@ -88,7 +90,6 @@ footer {
   position: fixed;
   left: 1%;
   height: 90px;
-  width: 90;
   transition: transform 0.3s ease;
   border-radius: 50%;
 }
@@ -101,18 +102,35 @@ footer {
   transform: scale(1.1);
 }
 /* Change the color of links on hover */
-
+/* 
 .navBar a:hover {
   background-color: black;
   color: white;
-}
+} */
 
 /* Add a color to the active/current link */
-.navBar a.active {
+/* .navBar a.active {
   background-color: white;
   color: black;
+} */
+
+body {
+  cursor: none;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
 }
 
+#light {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgb(255,215,0) 0%, black 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+}
 
 
 

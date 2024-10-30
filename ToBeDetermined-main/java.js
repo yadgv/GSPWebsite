@@ -1,3 +1,16 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const light = document.createElement("div");
+    light.id = "light";
+    document.body.appendChild(light);
+  
+    document.addEventListener("mousemove", function (e) {
+      const x = e.clientX;
+      const y = e.clientY;
+      light.style.left = x + "px";
+      light.style.top = y + "px";
+    });
+});
+
 // Get the modal
 var modal = document.getElementById("imageModal");
 
@@ -28,6 +41,8 @@ window.onclick = function(event) {
 
 document.addEventListener('keydown', function(event) {
   if (event.key === "Escape") { // Check if the pressed key is Esc
-      modal.style.display = "none";
+    modal.style.display = "none";
   }
 });
+
+
