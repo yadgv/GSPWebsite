@@ -9,13 +9,20 @@ body, html {
   background-color: black;
   padding: 10px;
   /* overflow: hidden; */
+  cursor: none;
 }
 
 #title {
+  transition: all 0.3s;
   margin: 20px;
   text-align: center;
   color: white;
   font-size: 50px;
+  opacity: 0.5;
+  background: transparent;
+}
+#title:hover{
+  opacity: 1;
 }
 
 .container {
@@ -53,60 +60,70 @@ footer {
     color: #888;
 }
 
+/* Style the links inside the navigation bar */
+.navBar a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the left */
+  padding: 10px;
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+/* Hide the text initially (not the image) */
+.navBar a span {
+  opacity: 0; /* Initially hide text */
+  /* visibility: hidden;  */
+  margin-left: 10px; /* Space between image and text */
+  white-space: nowrap; /* Prevent text wrapping */
+  transition: all 0.3s;
+}
+
+/* NavBar icon image styling */
+.navBar a img {
+  height: 90px;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  filter: brightness(0.25); /* Dim icons initially */
+}
+
+/* Expand NavBar on hover */
 .navBar {
   z-index: 9999;
   position: fixed;
   left: 1%;
-  top: 45%;
-  bottom: 50%;
-  margin-top: auto;
-  margin-bottom: auto;
+  /* top: 45%; */
+  bottom: 25%;
   display: grid;
-  /* background-color: #274156; */
   height: 50vh;
-  width: 5vw;
-  transition: width 0.5s ease;
+  width: 5vw; /* Initial narrow width */
+  transition: all 0.5s ease;
   overflow: hidden;
-}
-  
-/* Style the links inside the navigation bar */
-.navBar a{
-  display: fixed;
-  left: 1%;
-  /* background-color: black; */
-  border-radius: 10vw;
-  margin-top: 20px;
-  color: #f2f2f2;
-  text-decoration: none;
-  font-size: 17px;
-  transition: all 0.3s;
-  overflow: hidden;
-  text-align: right;
-}
-
-
-.navBar a img {
-  /* scale: 0.1; */
-  position: fixed;
-  left: 1%;
-  height: 90px;
-  transition: transform 0.3s ease;
-  border-radius: 50%;
 }
 
 .navBar:hover {
-  width: 10vw;
+  width: 10vw; /* Expand width when hovered */
+  left: 2%;
+}
+/* Show the text only when the NavBar is fully expanded */
+
+.navBar:hover a span {
+  opacity: 0.5; /* Show text */
+  /* visibility: visible;  */
+}
+.navBar a:hover span {
+  opacity: 1; /* Show text */
+  /* visibility: visible;  */
+}
+/* Hover effect for images */
+.navBar a img:hover {
+  transform: scale(1.1); /* Enlarge icons slightly */
+  filter: brightness(1); /* Brighten icons */
 }
 
-.navBar a img:hover {
-  transform: scale(1.1);
-}
-/* Change the color of links on hover */
-/* 
-.navBar a:hover {
-  background-color: black;
-  color: white;
-} */
+
 
 /* Add a color to the active/current link */
 /* .navBar a.active {
@@ -114,12 +131,11 @@ footer {
   color: black;
 } */
 
-body {
-  cursor: none;
+/* body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
-}
+} */
 
 #light {
   position: fixed;
@@ -128,7 +144,7 @@ body {
   background: radial-gradient(circle, rgb(255,215,0) 0%, black 70%);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 999;
+  z-index: -1;
   transform: translate(-50%, -50%);
 }
 
