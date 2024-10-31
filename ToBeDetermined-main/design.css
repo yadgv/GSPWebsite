@@ -10,6 +10,8 @@ body, html {
   padding: 10px;
   /* overflow: hidden; */
   cursor: none;
+  height: 1px;
+  width: 100%;
 }
 
 #title {
@@ -95,16 +97,16 @@ footer {
   position: fixed;
   left: 1%;
   /* top: 45%; */
-  bottom: 25%;
+  bottom: 15%;
   display: grid;
-  height: 50vh;
-  width: 5vw; /* Initial narrow width */
+  height: 80vh;
+  width: 7vw; /* Initial narrow width */
   transition: all 0.5s ease;
   overflow: hidden;
 }
 
 .navBar:hover {
-  width: 12vw; /* Expand width when hovered */
+  width: 18vw; /* Expand width when hovered */
   left: 2%;
 }
 /* Show the text only when the NavBar is fully expanded */
