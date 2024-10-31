@@ -104,7 +104,7 @@ footer {
 }
 
 .navBar:hover {
-  width: 10vw; /* Expand width when hovered */
+  width: 12vw; /* Expand width when hovered */
   left: 2%;
 }
 /* Show the text only when the NavBar is fully expanded */
