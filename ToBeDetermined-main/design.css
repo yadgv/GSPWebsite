@@ -10,6 +10,26 @@ body, html {
   padding: 10px;
   overflow: hidden;
   cursor: none;
+  /* z-index: -1; */
+}
+@font-face {
+  font-family: 'MyPixelFont';
+  src: url('fonts/MyPixelFont.woff') format('woff'),
+       url('fonts/MyPixelFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#homeWalle{
+  position: absolute;
+  left: 55%;
+  top: 2%;
+  opacity: 0.5;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+#homeWalle:hover{
+  opacity: 0.6;
 }
 
 #title {
@@ -96,8 +116,8 @@ footer {
   /* top: 45%; */
   bottom: 15%;
   display: grid;
-  height: 50vh;
-  width: 5vw; /* Initial narrow width */
+  height: 70vh;
+  width: 7vw; /* Initial narrow width */
   transition: all 0.5s ease;
   overflow: hidden;
 }
