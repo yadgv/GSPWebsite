@@ -4,14 +4,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+
+
 body, html {
   font-family: "MyPixelFont", sans-serif;
-  background-color: black;
+  background-color: transparent;
   padding: 10px;
   overflow: hidden;
   cursor: none;
-  /* z-index: -1; */
+  z-index: -1;
 }
+
+body{
+  background-color: black;
+}
+
 @font-face {
   font-family: 'MyPixelFont';
   src: url('fonts/MyPixelFont.woff') format('woff'),
@@ -32,7 +40,101 @@ body, html {
   opacity: 0.6;
 }
 
-#title {
+/* Define custom properties */
+@property --eyelid {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+@property --eyelid2 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.eyes {
+  position: absolute;
+  top: 25%;
+  right: 14%;
+  width: 250px;
+  padding-block: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.eyes div {
+  position: relative;
+  width: 250px;
+  aspect-ratio: 1;
+  background: gray;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: eyelid 5s ease-in-out infinite;
+  transition: background 0.3s;
+}
+
+/* Upper eyelid */
+.eyes div:before {
+  content: '';
+  position: absolute;
+  width: 116%;
+  height: 165%;
+  left: 50%;
+  top: 0;
+  border-radius: 0% 0% 40% 40%;
+  transform: translateY(var(--eyelid)) translateX(-50%);
+  border-bottom: 40px solid black;
+  z-index: 1;
+}
+
+/* Lower eyelid */
+.eyes div:after {
+  content: '';
+  position: absolute;
+  width: 116%;
+  height: 165%;
+  left: 50%;
+  bottom: 0;
+  border-radius: 40% 40% 0% 0%;
+  transform: translateY(var(--eyelid2)) translateX(-50%);
+  border-top: 40px solid black;
+  z-index: 1;
+}
+
+/* Pupil */
+.eyes div i {
+  position: absolute;
+  width: 80px;
+  aspect-ratio: inherit;
+  background: gray;
+  border-radius: inherit;
+}
+
+/* Eyelid animation */
+@keyframes eyelid {
+  0% {
+    --eyelid: -50%;
+    --eyelid2: 50%;
+  }
+  3% {
+    --eyelid: 0%;
+    --eyelid2: 0%;
+  }
+  6% {
+    --eyelid: -50%;
+    --eyelid2: 50%;
+  }
+  9%, 100% {
+    --eyelid: 0%;
+    --eyelid2: 0%;
+  }
+}
+.title {
   position: relative; 
   transition: all 0.3s;
   color: white;
@@ -40,8 +142,9 @@ body, html {
   opacity: 0.5; 
   font-family: "MyPixelFont", sans-serif;
   text-align: center; 
+  /* z-index: -1; */
 }
-#title:hover{
+.title:hover{
   opacity: 1;
 }
 
