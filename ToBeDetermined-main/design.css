@@ -5,31 +5,46 @@
   box-sizing: border-box;
 }
 body, html {
-  font-family: Arial, sans-serif;
+  font-family: "MyPixelFont", sans-serif;
   background-color: black;
   padding: 10px;
-  /* overflow: hidden; */
+  overflow: hidden;
   cursor: none;
+  /* z-index: -1; */
+}
+@font-face {
+  font-family: 'MyPixelFont';
+  src: url('fonts/MyPixelFont.woff') format('woff'),
+       url('fonts/MyPixelFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#homeWalle{
+  position: absolute;
+  left: 55%;
+  top: 2%;
+  opacity: 0.5;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+#homeWalle:hover{
+  opacity: 0.6;
 }
 
 #title {
+  position: relative; 
   transition: all 0.3s;
-  margin: 20px;
-  text-align: center;
   color: white;
   font-size: 50px;
-  opacity: 0.5;
-  background: transparent;
+  opacity: 0.5; 
+  font-family: "MyPixelFont", sans-serif;
+  text-align: center; 
 }
 #title:hover{
   opacity: 1;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
 .person-card {
     background-color: white;
     border-radius: 10px;
@@ -60,8 +75,9 @@ footer {
     color: #888;
 }
 
-/* Style the links inside the navigation bar */
+
 .navBar a {
+  cursor: none;
   display: flex;
   align-items: center;
   justify-content: flex-start; /* Align items to the left */
@@ -74,6 +90,7 @@ footer {
 
 /* Hide the text initially (not the image) */
 .navBar a span {
+  cursor: none;
   opacity: 0; /* Initially hide text */
   /* visibility: hidden;  */
   margin-left: 10px; /* Space between image and text */
@@ -83,6 +100,7 @@ footer {
 
 /* NavBar icon image styling */
 .navBar a img {
+  cursor: none;
   height: 90px;
   transition: all 0.3s ease;
   border-radius: 50%;
@@ -91,20 +109,21 @@ footer {
 
 /* Expand NavBar on hover */
 .navBar {
+  cursor: none;
   z-index: 9999;
   position: fixed;
   left: 1%;
   /* top: 45%; */
-  bottom: 25%;
+  bottom: 15%;
   display: grid;
-  height: 50vh;
-  width: 5vw; /* Initial narrow width */
+  height: 70vh;
+  width: 7vw; /* Initial narrow width */
   transition: all 0.5s ease;
   overflow: hidden;
 }
 
 .navBar:hover {
-  width: 12vw; /* Expand width when hovered */
+  width: 18vw; /* Expand width when hovered */
   left: 2%;
 }
 /* Show the text only when the NavBar is fully expanded */
@@ -139,13 +158,14 @@ footer {
 
 #light {
   position: fixed;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   background: radial-gradient(circle, rgb(255,215,0) 0%, black 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: -1;
   transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
 }
 
 
