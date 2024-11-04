@@ -40,18 +40,6 @@ body{
   opacity: 0.6;
 }
 
-/* Define custom properties */
-@property --eyelid {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 0%;
-}
-@property --eyelid2 {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 0%;
-}
-
 .eyes {
   position: absolute;
   top: 25%;
@@ -78,34 +66,6 @@ body{
   transition: background 0.3s;
 }
 
-/* Upper eyelid */
-.eyes div:before {
-  content: '';
-  position: absolute;
-  width: 116%;
-  height: 165%;
-  left: 50%;
-  top: 0;
-  border-radius: 0% 0% 40% 40%;
-  transform: translateY(var(--eyelid)) translateX(-50%);
-  border-bottom: 40px solid black;
-  z-index: 1;
-}
-
-/* Lower eyelid */
-.eyes div:after {
-  content: '';
-  position: absolute;
-  width: 116%;
-  height: 165%;
-  left: 50%;
-  bottom: 0;
-  border-radius: 40% 40% 0% 0%;
-  transform: translateY(var(--eyelid2)) translateX(-50%);
-  border-top: 40px solid black;
-  z-index: 1;
-}
-
 /* Pupil */
 .eyes div i {
   position: absolute;
@@ -115,25 +75,6 @@ body{
   border-radius: inherit;
 }
 
-/* Eyelid animation */
-@keyframes eyelid {
-  0% {
-    --eyelid: -50%;
-    --eyelid2: 50%;
-  }
-  3% {
-    --eyelid: 0%;
-    --eyelid2: 0%;
-  }
-  6% {
-    --eyelid: -50%;
-    --eyelid2: 50%;
-  }
-  9%, 100% {
-    --eyelid: 0%;
-    --eyelid2: 0%;
-  }
-}
 .title {
   position: relative; 
   transition: all 0.3s;
