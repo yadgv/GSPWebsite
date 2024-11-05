@@ -1,6 +1,6 @@
 var lightOn = false;
 document.onclick = function() {
-  lightOn = true;
+  lightOn = !lightOn;
   walle = document.getElementById("homeWalle")
   walle.src = "sources/WalleLightOnLeft.png";
   walle.style.opacity = "0.7";
@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.addEventListener('mousemove', (e) => {
           const eyesContainer = document.querySelector('.eyes');
           const eyes = document.querySelectorAll('.eyes > div');
-          eyes.forEach(eye => {
-            eye.style.background = "gold";
-          });
+          // eyes.forEach(eye => {
+          //   eye.style.background = "gold";
+          // });
 
           if(!eyesContainer || eyes.length !== 2) return;
           
@@ -45,6 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
             eyeBall.style.transform = `translate(${moveX}px, ${moveY}px)`;
           });
         });
+      } else{
+        light.style.opacity = "0";
+        walle = document.getElementById("homeWalle")
+        walle.src = "sources/WalleLightOffLeft.png";
+        walle.style.opacity = "0.5";
       }
     });
 });

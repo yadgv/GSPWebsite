@@ -28,24 +28,38 @@ body{
   font-style: normal;
 }
 
-#homeWalle{
+
+/* Eye Container */
+.eye-container {
   position: absolute;
-  left: 55%;
-  top: 2%;
-  opacity: 0.5;
-  transition: all 0.3s;
-  pointer-events: none;
+  top: 1%; /* Adjust to position container on the page */
+  left: 50%; /* Adjust as needed */
+  width: 135vh; /* Matches the width of .eyes and #homeWalle */
+  height: 135vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Prevent interaction if needed */
 }
-#homeWalle:hover{
+
+/* Walle Image */
+#homeWalle {
+  position: absolute;
+  width: 100%; /* Fill the container */
+  height: 100%;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+#homeWalle:hover {
   opacity: 0.6;
 }
 
+/* Eyes */
 .eyes {
   position: absolute;
-  top: 25%;
-  right: 14%;
-  width: 250px;
-  padding-block: 20px;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,26 +68,30 @@ body{
 
 .eyes div {
   position: relative;
-  width: 250px;
   aspect-ratio: 1;
-  background: gray;
+  width: 100%; /* Fill container width */
+  background-image: url("/ToBeDetermined-main/sources/WalleLightEyeBallGood.png");
+  background-size: cover;
+  background-position: center;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: eyelid 5s ease-in-out infinite;
   transition: background 0.3s;
 }
 
 /* Pupil */
 .eyes div i {
   position: absolute;
-  width: 80px;
-  aspect-ratio: inherit;
-  background: gray;
-  border-radius: inherit;
+  width: 100%;
+  aspect-ratio: 1;
+  background-image: url("/ToBeDetermined-main/sources/WalleLightPupilGood.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
 }
+
 
 .title {
   position: relative; 
