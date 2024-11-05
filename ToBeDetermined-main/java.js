@@ -1,58 +1,51 @@
 var lightOn = false;
-document.onclick = function() {
+const walle = document.getElementById("homeWalle");
+const walleEye = document.getElementById("homeWalle");
+document.onclick = function () {
   lightOn = !lightOn;
-  walle = document.getElementById("homeWalle")
-  walle.src = "sources/WalleLightOnLeft.png";
-  walle.style.opacity = "0.7";
+  walle.src = lightOn ? "sources/WalleLightOnLeft.png" : "sources/WalleLightOffLeft.png";
+  walle.style.opacity = lightOn ? "0.7" : "0.5";
 };
+
 document.addEventListener("DOMContentLoaded", function () {
-    const light = document.createElement("div");
-    light.id = "light";
-    document.body.appendChild(light);
-    light.style.opacity = "0";
+  const light = document.createElement("div");
+  light.id = "light";
+  document.body.appendChild(light);
+  light.style.opacity = "0";
 
-    document.addEventListener("mousemove", function (e) {
-      if (lightOn) {
-        light.style.opacity = "1";
-        const x = e.clientX;
-        const y = e.clientY;
-        light.style.left = x + "px";
-        light.style.top = y + "px";
-        document.addEventListener('mousemove', (e) => {
-          const eyesContainer = document.querySelector('.eyes');
-          const eyes = document.querySelectorAll('.eyes > div');
-          // eyes.forEach(eye => {
-          //   eye.style.background = "gold";
-          // });
+  document.addEventListener("mousemove", function (e) {
+    light.style.opacity = lightOn ? "1" : "0";
+    
+    if (lightOn) {
+      light.style.left = e.clientX + "px";
+      light.style.top = e.clientY + "px";
 
-          if(!eyesContainer || eyes.length !== 2) return;
-          
-          const containerRect = eyesContainer.getBoundingClientRect();
-          const containerCenterX = containerRect.left + containerRect.width / 2;
-          const containerCenterY = containerRect.top + containerRect.height / 2;
-        
-          const angle = Math.atan2(e.clientY - containerCenterY, e.clientX - containerCenterX);
-          const distance = Math.min(
-            eyes[0].offsetWidth / 4,
-            Math.sqrt(Math.pow(e.clientX - containerCenterX, 2) + Math.pow(e.clientY - containerCenterY, 2))
-          );
-        
-          const moveX = Math.cos(angle) * distance;
-          const moveY = Math.sin(angle) * distance;
-          
-          eyes.forEach(eye => {
-            const eyeBall = eye.querySelector('i');
-            eyeBall.style.transform = `translate(${moveX}px, ${moveY}px)`;
-          });
-        });
-      } else{
-        light.style.opacity = "0";
-        walle = document.getElementById("homeWalle")
-        walle.src = "sources/WalleLightOffLeft.png";
-        walle.style.opacity = "0.5";
-      }
-    });
+      const eyesContainer = document.querySelector(".eyes");
+      const eyes = document.querySelectorAll(".eyes > div");
+
+      if (!eyesContainer || eyes.length !== 2) return;
+
+      const containerRect = eyesContainer.getBoundingClientRect();
+      const containerCenterX = containerRect.left + containerRect.width / 2;
+      const containerCenterY = containerRect.top + containerRect.height / 2;
+
+      const angle = Math.atan2(e.clientY - containerCenterY, e.clientX - containerCenterX);
+      const distance = Math.min(
+        eyes[0].offsetWidth / 4,
+        Math.sqrt(Math.pow(e.clientX - containerCenterX, 2) + Math.pow(e.clientY - containerCenterY, 2))
+      );
+
+      const moveX = Math.cos(angle) * distance;
+      const moveY = Math.sin(angle) * distance;
+
+      eyes.forEach((eye) => {
+        const eyeBall = eye.querySelector("i");
+        eyeBall.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+    }
+  });
 });
+
 
 
 

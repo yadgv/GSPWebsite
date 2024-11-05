@@ -29,18 +29,7 @@ body{
 }
 
 
-/* Eye Container */
-.eye-container {
-  position: absolute;
-  top: 1%; /* Adjust to position container on the page */
-  left: 50%; /* Adjust as needed */
-  width: 135vh; /* Matches the width of .eyes and #homeWalle */
-  height: 135vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none; /* Prevent interaction if needed */
-}
+
 
 /* Walle Image */
 #homeWalle {
@@ -55,6 +44,19 @@ body{
   opacity: 0.6;
 }
 
+/* Eye Container */
+.eye-container {
+  position: absolute;
+  top: 1%; /* Adjust to position container on the page */
+  left: 50%; /* Adjust as needed */
+  width: 135vh; /* Matches the width of .eyes and #homeWalle */
+  height: 135vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Prevent interaction if needed */
+}
+
 /* Eyes */
 .eyes {
   position: absolute;
@@ -66,10 +68,11 @@ body{
   gap: 20px;
 }
 
+
 .eyes div {
   position: relative;
   aspect-ratio: 1;
-  width: 100%; /* Fill container width */
+  width: 100%; /* Fills container width */
   background-image: url("/ToBeDetermined-main/sources/WalleLightEyeBallGood.png");
   background-size: cover;
   background-position: center;
@@ -85,11 +88,24 @@ body{
 .eyes div i {
   position: absolute;
   width: 100%;
-  aspect-ratio: 1;
+  height: 100%;
   background-image: url("/ToBeDetermined-main/sources/WalleLightPupilGood.png");
   background-size: cover;
   background-position: center;
   border-radius: 50%;
+  /* transition: transform 0.1s; Smooth out pupil movement */
+}
+
+#light {
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgb(255,215,0) 0%, black 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
 }
 
 
@@ -218,17 +234,7 @@ footer {
   overflow: hidden;
 } */
 
-#light {
-  position: fixed;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgb(255,215,0) 0%, black 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: -1;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s;
-}
+
 
 
 
