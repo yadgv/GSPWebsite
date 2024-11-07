@@ -1,25 +1,37 @@
-var lightOn = false;
+let lightOn = false;
 const walle = document.getElementById("homeWalle");
-const walleEye = document.getElementById("homeWalle");
-document.onclick = function () {
-  lightOn = !lightOn;
-  walle.src = lightOn ? "sources/WalleLightOnLeft.png" : "sources/WalleLightOnNoEyeBallsAtAll.png";
-  walle.style.opacity = lightOn ? "0.7" : "0.5";
-};
+const light = document.createElement("div");
 
 document.addEventListener("DOMContentLoaded", function () {
-  const light = document.createElement("div");
+  // Set up the light element and add it to the DOM
   light.id = "light";
   document.body.appendChild(light);
-  light.style.opacity = "0";
+  light.style.opacity = "0"; // Default to off
 
+  // Determine initial light state based on page
+  if (document.URL.includes("home.html")) {
+    lightOn = false;
+  }else{
+    lightOn = true;
+    light.style.opacity = "1";
+  }
+
+  // Toggle light on click only on "home.html"
+  if (document.URL.includes("home.html")) {
+    document.onclick = function () {
+      lightOn = !lightOn;
+      light.style.opacity = lightOn ? "1" : "0";
+      walle.src = lightOn ? "sources/WalleLightOnNoEyeBallsAtAll.png" : "sources/WalleLightOffNoEyeBallsAtAll.png";
+      walle.style.opacity = lightOn ? "0.7" : "0.5";
+    };
+  }
+
+  // Track mouse movement to update light and eyes when light is on
   document.addEventListener("mousemove", function (e) {
-    light.style.opacity = lightOn ? "1" : "0";
-    
-    if (lightOn) {
-      light.style.left = e.clientX + "px";
-      light.style.top = e.clientY + "px";
+    light.style.left = e.clientX + "px";
+    light.style.top = e.clientY + "px";
 
+    if (lightOn && document.URL.includes("home.html")) {
       const eyesContainer = document.querySelector(".eyes");
       const eyes = document.querySelectorAll(".eyes > div");
 
@@ -29,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const containerCenterX = containerRect.left + containerRect.width / 2;
       const containerCenterY = containerRect.top + containerRect.height / 2;
 
+      // Calculate angle and distance for eye movement
       const angle = Math.atan2(e.clientY - containerCenterY, e.clientX - containerCenterX);
       const distance = Math.min(
         eyes[0].offsetWidth / 4,
@@ -38,13 +51,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const moveX = Math.cos(angle) * distance;
       const moveY = Math.sin(angle) * distance;
 
+      // Move each eye's pupil based on calculated position
       eyes.forEach((eye) => {
         const eyeBall = eye.querySelector("i");
-        eyeBall.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        if (eyeBall) {
+          eyeBall.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        }
       });
     }
   });
 });
+
 
 
 
