@@ -3,7 +3,7 @@ const walle = document.getElementById("homeWalle");
 const walleEye = document.getElementById("homeWalle");
 document.onclick = function () {
   lightOn = !lightOn;
-  walle.src = lightOn ? "sources/WalleLightOnLeft.png" : "sources/WalleLightOffLeft.png";
+  walle.src = lightOn ? "sources/WalleLightOnLeft.png" : "sources/WalleLightOnNoEyeBallsAtAll.png";
   walle.style.opacity = lightOn ? "0.7" : "0.5";
 };
 
