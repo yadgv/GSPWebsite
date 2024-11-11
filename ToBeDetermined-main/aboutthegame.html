@@ -7,6 +7,7 @@
     <title>Light The Path</title>
 </head>
 <body>
+    <main>
     <header>
         <nav class="navBar">
             <a href="home.html" class="active">
@@ -26,38 +27,35 @@
                 <span>About The Game</span>
             </a>
             <a href="download.html">
-                <img src="homePNG.png" alt="Download Icon">
+                <img src="sources/DownloadIcon.png" alt="Download Icon">
                 <span>Download</span>
             </a>
         </nav>
-        <h1 class="title">Light The Path</h1>
+        <h1 class="title">About The Game</h1>
     </header>
 
-    <main>
-        <section class="objective">
-            <h2>Game Objective</h2>
-            <p>The goal of the game is to collect all the hidden treasures while avoiding the enemies.</p>
-        </section>
+    <div class="PhotoContainer">
+        <img class="PhotoContainerImg" id="previewImg" src="sources/placeholder.png">
+    </div>
     
-        <section class="gameplay">
-            <h2>Gameplay Mechanics</h2>
-            <ul>
-                <li><strong>Exploration:</strong> Some standard Lorem Ipsum text that im too bored to actually generate</li>
-                <li><strong>Combat:</strong>  Some standard Lorem Ipsum text that im too bored to actually generate</li>
-                <li><strong>Scoring:</strong>  Some standard Lorem Ipsum text that im too bored to actually generate</li>
-            </ul>
-        </section>
+    <div class="photoPicker">
+        <img class="photoPickerImg" src="sources/CurrentGameProgress.png">
+        <img class="photoPickerImg" src="sources/CurrentGameProgress.png">
+        <img class="photoPickerImg" src="sources/AnotherImage.png">
+        <img class="photoPickerImg" src="sources/AnotherImage.png">
+        <img class="photoPickerImg" src="sources/CurrentGameProgress.png">
+        <img class="photoPickerImg" src="sources/AnotherImage.png">
+        <img class="photoPickerImg" src="sources/AnotherImage.png">
+        <img class="photoPickerImg" src="sources/CurrentGameProgress.png">
+        <img class="photoPickerImg" src="sources/AnotherImage.png">
+    </div>
+    <div class="scrollButtons">
+        <a id="leftButton"><p><</p></a>
+        <a id="rightButton"><p>></p></a>
+    </div>
     
-        <section class="controls">
-            <h2>Controls</h2>
-            <ul>
-                <li><strong>Move:</strong> Some standard Lorem Ipsum text that im too bored to actually generate</li>
-                <li><strong>Jump:</strong>  Some standard Lorem Ipsum text that im too bored to actually generate.</li>
-                <li><strong>Attack:</strong>  Some standard Lorem Ipsum text that im too bored to actually generate</li>
-            </ul>
-        </section>
     </main>
-
     <script src="java.js"></script>
+
 </body>
 </html>

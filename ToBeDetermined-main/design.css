@@ -14,6 +14,8 @@ body, html {
   overflow: hidden;
   cursor: none;
   z-index: -1;
+  user-select: none;
+
 }
 
 body{
@@ -96,8 +98,8 @@ body{
 
 #light {
   position: fixed;
-  width: 250px;
-  height: 250px;
+  width: 12vw;
+  height: 12vw;
   background: radial-gradient(circle, rgb(255,215,0) 0%, black 70%);
   border-radius: 50%;
   pointer-events: none;
@@ -308,7 +310,7 @@ footer {
   margin-top: 20px;
   height: 85%;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 20%;
   transition: all 0.5s;
   text-align: center;
   align-self: auto;
@@ -402,3 +404,109 @@ section p, ul {
   margin-bottom: 15px;
   background-color: green;
 }
+
+
+
+
+.PhotoContainer{
+  position: absolute;
+  background-color: white;
+  height: 20vw;
+  width: 40vw;
+  right: 30%;
+  top: 20%;
+  border-radius: 2vh;
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+
+.PhotoContainer:hover{
+  opacity: 1;
+}
+
+.photoPicker{
+  position: absolute;
+  height: 6vw;
+  width: 40vw;
+  right: 30%;
+  top: 65%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 2vh;
+  scroll-behavior: smooth;
+  z-index: 1;
+}
+.photoPicker::-webkit-scrollbar {
+  display: none;
+}
+
+.photoPickerImg{
+  background-color: white;
+  height: 100%;
+  width: 25%;
+  display: inline-block;
+  border-radius: 2vh;
+  transition: all 0.3s;
+  opacity: 0.7;
+}
+
+.PhotoContainerImg{
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+  transition: all 0.3s;
+  position: relative;
+  border-radius: 2vh;
+}
+.photoPickerImg:hover {
+  transform: scale(1.05);
+}
+.photoPickerImg:hover {
+  opacity: 1;
+}
+
+.scrollButtons{
+  position: absolute;
+  height: 6vw;
+  width: 41vw;
+  right: 31%;
+  top: 65%;
+  border-radius: 2vh;
+  display: flex;
+}
+.scrollButtons a{
+  position: relative;
+  height: 6vw;
+  width: 1.5vw;
+  background-color: white;
+  border-radius: 1vh;
+  line-height: 6vw;
+  text-align: center;
+  opacity: 0.6;
+  transition: all 0.3s;
+  font-size: 1.3vw;
+  user-select: none;
+}
+#leftButton{
+  left: 0%;
+}
+#leftButton:hover{
+  opacity: 0.9;
+}
+#leftButton:active{
+  transform: scale(1.1);
+}
+#rightButton{
+  left: 100%;
+}
+#rightButton:hover{
+  opacity: 0.9;
+}
+#rightButton:active{
+  transform: scale(1.1);
+}
+
