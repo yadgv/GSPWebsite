@@ -183,6 +183,9 @@ footer {
   font-size: 17px;
   transition: all 0.3s ease;
 }
+.navBar a:active{
+  transform: scale(1.1);
+}
 
 /* Hide the text initially (not the image) */
 .navBar a span {
