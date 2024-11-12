@@ -101,16 +101,31 @@ document.addEventListener("DOMContentLoaded", function () {
   if (document.URL.includes("aboutthegame.html")){
     const previewImg = document.getElementById("previewImg");
     const photos = document.querySelectorAll('.photoPickerImg');
-  
-    photos.forEach(function(image) {
-      image.addEventListener("click", function(event) {
-        previewImg.src = this.src;
+    
+    // Function to update the preview area
+    function updatePreview(item) {
+      if (item.tagName === "IMG") {
+        previewImg.src = item.src; // Display image in preview
+        previewImg.style.display = "block"; // Ensure previewImg is visible
+        previewImg.replaceWith(previewImg); // Replace if it was previously an iframe
+      } else if (item.tagName === "IFRAME") {
+        const videoPreview = item.cloneNode(true); // Clone the iframe
+        videoPreview.width = previewImg.width; // Match dimensions
+        videoPreview.height = previewImg.height;
+        previewImg.replaceWith(videoPreview); // Replace preview image with iframe
+      }
+    }
+    
+    // Add click event listeners to all photo picker items
+    photos.forEach(function(item) {
+      item.addEventListener("click", function(event) {
+        updatePreview(this);
       });
     });
-
+    
+    // Scrolling buttons
     const buttonRight = document.getElementById('rightButton');
     const buttonLeft = document.getElementById('leftButton');
-    
     const photoPicker = document.getElementsByClassName('photoPicker')[0];
     
     buttonRight.onclick = function () {
