@@ -129,11 +129,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const photoPicker = document.getElementsByClassName('photoPicker')[0];
     
     buttonRight.onclick = function () {
-      photoPicker.scrollLeft += 400;
+      photoPicker.scrollLeft += 450;
     };
     
     buttonLeft.onclick = function () {
-      photoPicker.scrollLeft -= 400;
+      photoPicker.scrollLeft -= 450;
     };
   }
 });
