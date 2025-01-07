@@ -1,4 +1,5 @@
 let lightOn = false;
+let lightTurnedOn = false;
 const walle = document.getElementById("homeWalle");
 const light = document.createElement("div");
 
@@ -7,22 +8,32 @@ document.addEventListener("DOMContentLoaded", function () {
   light.id = "light";
   document.body.appendChild(light);
   light.style.opacity = "0"; // Default to off
+  lightOn = localStorage.getItem("lightOn") === "true";
+
 
   // Determine initial light state based on page
-  if (document.URL.includes("home.html")) {
-    lightOn = false;
-  }else{
+  if (!document.URL.includes("home.html")) {
     lightOn = true;
     light.style.opacity = "1";
+    localStorage.setItem("lightOn", "true");
+  }
+
+  if (document.URL.includes("home.html") && localStorage.getItem("lightOn") === "true") {
+    light.style.opacity = "1";
+    walle.src = "sources/WalleLightOnNoEyeBallsAtAll.png";
+    walle.style.opacity = "0.7";
+    localStorage.setItem("lightOn", lightOn);
   }
 
   // Toggle light on click only on "home.html"
   if (document.URL.includes("home.html")) {
     document.onclick = function () {
       lightOn = !lightOn;
+      lightTurnedOn = !lightTurnedOn;
       light.style.opacity = lightOn ? "1" : "0";
       walle.src = lightOn ? "sources/WalleLightOnNoEyeBallsAtAll.png" : "sources/WalleLightOffNoEyeBallsAtAll.png";
       walle.style.opacity = lightOn ? "0.7" : "0.5";
+      localStorage.setItem("lightOn", lightOn);
     };
   }
 

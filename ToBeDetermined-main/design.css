@@ -524,3 +524,25 @@ section p, ul {
   height: 100%;
   opacity: 0.5;
 }
+
+#billboard{
+  position: absolute;
+  width: 50%;
+  height: 125%;
+  z-index: 1;
+  right: 25%;
+  top: -5%;
+  opacity: 0.9;
+}
+
+
+
+.galleryBackground{
+  background-image: url("sources/coolBackground.png");
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
